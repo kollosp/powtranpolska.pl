@@ -1,0 +1,19 @@
+{
+  "name": "7-powtranpolska.pl",
+  "version": "1.0.0",
+  "description": "powtran polska page",
+  "main": "bin/www.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/kollosp/7-powtranpolska.pl.git"
+  },
+  "author": "Paweł Parczyk",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/kollosp/7-powtranpolska.pl/issues"
+  },
+  "homepage": "https://gitlab.com/kollosp/7-powtranpolska.pl#readme"
+}
