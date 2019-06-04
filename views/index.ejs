@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title><%= title %></title>
+		<link rel='stylesheet' href='/stylesheets/style.css' />
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+	<body>
+
+		<div class="tile is-ancestor is-vertical">
+			<header class="tile is-parent">
+				<div class="tile is-child">
+					<% include ../public/parts/topLabel %>
+					<% include ../public/parts/mainMenu %>
+					<% include ../public/parts/mainMenuSlider %>
+				</div>
+			</header>
+			
+			<main class="tile">
+				<div class="tile">
+					<div class="tile is-8 is-parent">
+						<div class="tile is-child">
+							<% include ../public/parts/index/about %>
+						</div>
+					</div>
+					<div class="tile is-4 is-parent">
+						<div class="tile is-child">
+							<% include ../public/parts/news %>
+						</div>
+					</div>
+				</div>
+				<div class="tile is-parent">
+					<div class="tile is-child">
+						<% include ../public/parts/index/productSlider %>
+					</div>
+				</div>
+				<div class="tile is-parent">
+					<div class="tile is-child">
+						<% include ../public/parts/index/whyus %>
+					</div>
+				</div>
+				<div class="tile is-parent">
+					<div class="tile is-child">
+						<% include ../public/parts/index/mailer %>
+					</div>
+				</div>
+			</main>
+
+			<footer class="tile is-parent">
+				<div class="tile is-child">
+					<% include ../public/parts/footer %>
+				</div>
+			</footer>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,35 @@
+.mainMenu
+	background-color: $white
+	
+	.navbar-item
+		img
+			max-height: initial
+
+	.navbar-item
+		font-weight: $strong-weight
+		color: $black
+
+		&.active
+			color: $primary
+
+
+	.container
+		position: relative
+
+		&::after
+			content: '\A'
+			position: absolute
+			bottom: 0px
+			left: 0
+			width: 80%
+			height: 6px
+			background-color: $primary
+			z-index: 100
+
+.mainMenuSlider
+	position: relative
+
+	.buttons
+		position: absolute
+		right: 20%
+		bottom: 10%

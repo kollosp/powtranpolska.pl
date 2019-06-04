@@ -1,19 +1,22 @@
 {
   "name": "7-powtranpolska.pl",
-  "version": "1.0.0",
-  "description": "powtran polska page",
-  "main": "bin/www.js",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node ./bin/www",
+    "start-css": "npm run css-watch",
+    "css-watch": "npm run css-build -- --watch",
+    "css-build": "node-sass --omit-source-map-url public/stylesheet/sass/style.sass public/stylesheet/style.css"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://gitlab.com/kollosp/7-powtranpolska.pl.git"
-  },
-  "author": "Paweł Parczyk",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://gitlab.com/kollosp/7-powtranpolska.pl/issues"
-  },
-  "homepage": "https://gitlab.com/kollosp/7-powtranpolska.pl#readme"
+  "dependencies": {
+    "bulma": "^0.7.5",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "ejs": "~2.5.7",
+    "express": "~4.16.0",
+    "http-errors": "~1.6.2",
+    "morgan": "~1.9.0",
+    "node-sass-middleware": "0.11.0",
+    "sequelize": "^5.8.7"
+  }
 }
