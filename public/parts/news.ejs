@@ -1,0 +1,13 @@
+<div class="tile is-parent news">
+	<div class="tile is-child">
+	<%for(let i in render.news){%>
+		<h3> <%=render.news[i].title%></h3>
+		<span> <%=render.news[i].date%></span>
+		<figure class="image">
+			<img src="<%=render.news[i].mainImage%>" />
+		</figure>		
+
+		<p> <%-render.news[i].brief%></p>
+	<%}%>
+	</div>
+</div>

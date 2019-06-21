@@ -7015,4 +7015,7 @@ figure img.fullwidth {
   .arrow:not(:last-child) {
     margin-right: 3rem; }
 
+.news {
+  background-color: #b5b5b5; }
+
 /*# sourceMappingURL=style.css.map */

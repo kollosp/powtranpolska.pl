@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title><%= title %></title>
+		<title>Powtran-Polska</title>
 		<link rel='stylesheet' href='/stylesheets/style.css' />
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous" />
+    
 	</head>
 	<body>
 
@@ -13,40 +15,59 @@
 				<div class="tile is-child">
 					<% include ../public/parts/topLabel %>
 					<% include ../public/parts/mainMenu %>
-					<% include ../public/parts/mainMenuSlider %>
+					<div class="is-hidden-touch">
+						<% include ../public/parts/mainMenuSlider %>
+					</div>
+					<div class="is-hidden-desktop">
+						<% include ../public/parts/mainMenuSliderMobile %>
+					</div>
 				</div>
 			</header>
-			
-			<main class="tile">
-				<div class="tile">
-					<div class="tile is-8 is-parent">
-						<div class="tile is-child">
+		</div><!--ancestor-->
+		
+		<div class="has-background-white">
+			<div class="container">
+				<main class="is-ancestor tile is-vertical">
+					<div class="tile">
+						<div class="tile is-8 is-parent">
 							<% include ../public/parts/index/about %>
 						</div>
-					</div>
-					<div class="tile is-4 is-parent">
-						<div class="tile is-child">
-							<% include ../public/parts/news %>
+						<div class="tile is-4 is-parent">
+							<div class="tile is-child">
+								<% include ../public/parts/news %>
+							</div>
 						</div>
 					</div>
-				</div>
-				<div class="tile is-parent">
-					<div class="tile is-child">
-						<% include ../public/parts/index/productSlider %>
-					</div>
-				</div>
-				<div class="tile is-parent">
-					<div class="tile is-child">
-						<% include ../public/parts/index/whyus %>
-					</div>
-				</div>
-				<div class="tile is-parent">
-					<div class="tile is-child">
-						<% include ../public/parts/index/mailer %>
-					</div>
-				</div>
-			</main>
+				</main>
+			</div>
+		</div>
+	
+		<div class="has-background-grey-lighter">
+			<div class="container">
+				<main class="is-ancestor tile is-vertical">
+					<% include ../public/parts/index/productSlider %>
+				</main>
+			</div>
+		</div>
+	
 
+		<div class="has-background-white">
+			<div class="container">
+				<main class="is-ancestor tile is-vertical">
+					<% include ../public/parts/index/whyus %>
+				</main>
+			</div>
+		</div>
+
+		<div class="has-background-grey-lighter">	
+			<div class="container">
+				<main class="is-ancestor tile is-vertical">
+					<% include ../public/parts/index/mailer %>
+				</main>
+			</div>
+		</div>
+
+		<div class="tile is-ancestor is-vertical">
 			<footer class="tile is-parent">
 				<div class="tile is-child">
 					<% include ../public/parts/footer %>
