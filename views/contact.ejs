@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+    	<% include ../public/parts/head %>
+	</head>
+	<body>
+		<div class="tile is-ancestor is-vertical">
+			<header class="tile is-parent">
+				<div class="tile is-child">
+					<% include ../public/parts/topLabel %>
+					<% include ../public/parts/mainMenu %>
+					<div class="is-hidden-touch">
+						<% include ../public/parts/mainMenuSlider %>
+					</div>
+					<div class="is-hidden-desktop">
+						<% include ../public/parts/mainMenuSliderMobile %>
+					</div>
+				</div>
+			</header>
+		</div><!--ancestor-->
+		
+		<div class="container">
+			<div class="tile is-ancestor ">
+				<div class="tile is-4 has-background-grey-light">
+					<div class="tile is-parent">
+						<div class="tile is-child">
+							<span class="important">Powtran-Polska</span> 
+							ul. Garbary 3
+							85-229 Bydgoszcz
+							tel. +48 523 214 198
+							fax. +48 523 214 197
+							kom. +48 501 634 651
+							www.powtran-polska.pl
+
+							<hr>
+							<span class="important">Sprzedaż i doradztwo techniczne - Jerzy Parczyk</span>
+							tel. 501 263 866
+							j.parczyk@powtran-polska.pl
+
+							<span class="important">Obsługa klienta - Wiesław Gałązka</span>
+							tel. 501 143 154
+							w.galazka@powtran-polska.pl
+
+							<hr>
+							NIP: 9671354652
+							REGON: 341286593
+							Numer KRS: 0000422589
+							
+							<hr>
+							<span class="important">Konto bankowe: Bank Spółdzielczy w Nakle nad Notecią</span>
+							68 8179 009 0028 4426 2000 0010
+						</div>
+					</div>
+				</div>
+				<div class="tile is-4">
+					MAPA
+				</div>
+				<div class="tile is-4">
+					<% include ../public/parts/news %>
+				</div>
+			</div>
+		</div>
+
+		<div class="tile is-ancestor is-vertical">
+			<footer class="tile is-parent">
+				<div class="tile is-child">
+					<% include ../public/parts/footer %>
+				</div>
+			</footer>
+		</div>
+	</body>
+</html>

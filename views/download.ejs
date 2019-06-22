@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+    	<% include ../public/parts/head %>
+	</head>
+	<body>
+		<div class="tile is-ancestor is-vertical">
+			<header class="tile is-parent">
+				<div class="tile is-child">
+					<% include ../public/parts/topLabel %>
+					<% include ../public/parts/mainMenu %>
+					<div class="is-hidden-touch">
+						<% include ../public/parts/mainMenuSlider %>
+					</div>
+					<div class="is-hidden-desktop">
+						<% include ../public/parts/mainMenuSliderMobile %>
+					</div>
+				</div>
+			</header>
+		</div><!--ancestor-->
+		
+		<div class="container">
+			<div class="tile is-ancestor has-background-grey-lighter">
+				<div class="tile is-8">
+					
+					<div class="tile is-parent is-vertical">
+						<div class="tile is-child">
+							<h1 class="title">Pliki do pobrania</h1>
+						</div>		
+						<%for(let i of render.download){%>
+							<div class="tile is-child">
+								<%=i.date%> <br>
+								<%=i.name%> <br>
+								<%=i.path%>
+							</div>
+						<%}%>
+					</div>
+				
+				</div>
+				<div class="tile is-4">
+					<% include ../public/parts/news %>
+				</div>
+			</div>
+		</div>
+
+		<div class="tile is-ancestor is-vertical">
+			<footer class="tile is-parent">
+				<div class="tile is-child">
+					<% include ../public/parts/footer %>
+				</div>
+			</footer>
+		</div>
+	</body>
+</html>
