@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+    	<% include ../public/parts/head %>
+	</head>
+	<body>
+
+		<div class="tile is-ancestor is-vertical">
+			<header class="tile is-parent">
+				<div class="tile is-child">
+					<% include ../public/parts/topLabel %>
+					<% include ../public/parts/mainMenu %>
+					<div class="is-hidden-touch">
+						<% include ../public/parts/mainMenuSlider %>
+					</div>
+					<div class="is-hidden-desktop">
+						<% include ../public/parts/mainMenuSliderMobile %>
+					</div>
+				</div>
+			</header>
+		</div><!--ancestor-->
+		
+		<div class="has-background-white">
+			<div class="container">
+				<main class="is-ancestor">
+					<div class="tile is-parent">
+						<div class="tile is-child">
+						
+						</div>
+					</div>
+				</main>
+			</div>
+		</div>
+
+		<div class="tile is-ancestor is-vertical">
+			<footer class="tile is-parent">
+				<div class="tile is-child">
+					<% include ../public/parts/footer %>
+				</div>
+			</footer>
+		</div>
+	</body>
+</html>

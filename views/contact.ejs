@@ -21,39 +21,52 @@
 		
 		<div class="container">
 			<div class="tile is-ancestor ">
-				<div class="tile is-4 has-background-grey-light">
+				<div class="tile is-4 has-background-grey-lighter">
 					<div class="tile is-parent">
-						<div class="tile is-child">
-							<span class="important">Powtran-Polska</span> 
-							ul. Garbary 3
-							85-229 Bydgoszcz
-							tel. +48 523 214 198
-							fax. +48 523 214 197
-							kom. +48 501 634 651
-							www.powtran-polska.pl
-
-							<hr>
-							<span class="important">Sprzedaż i doradztwo techniczne - Jerzy Parczyk</span>
-							tel. 501 263 866
-							j.parczyk@powtran-polska.pl
-
-							<span class="important">Obsługa klienta - Wiesław Gałązka</span>
-							tel. 501 143 154
-							w.galazka@powtran-polska.pl
-
-							<hr>
-							NIP: 9671354652
-							REGON: 341286593
-							Numer KRS: 0000422589
+						<div class="tile is-child tile-content">
+							<span class="important-red">Powtran-Polska</span> 
+							<ul>
+								<li><span class="important">ul. Garbary 3</span></li>
+								<li><span class="important">85-229 Bydgoszcz</span></li>
+								<li>tel. <span class="important">+48 523 214 198</span></li>
+								<li>fax. +48 523 214 197</li>
+								<li>kom. +48 501 634 651</li>
+								<li>Czynne w dni robocze w godzinach 8 - 15</li>
+								<li><span class="important">www.powtran-polska.pl</span></li>
+							</ul>
 							
-							<hr>
+							<hr class="has-background-grey-light">
+							
+							<span class="important-red">Sprzedaż i doradztwo techniczne - Jerzy Parczyk</span>
+							<ul>
+								<li>tel. <span class="important">+48 501 263 866</span></li>
+								<li>j.parczyk@powtran-polska.pl</li>
+							</ul>
+							<br>
+
+							<span class="important-red">Obsługa klienta - Wiesław Gałązka</span>
+							<ul>
+								<li>tel. <span class="important">+48 501 143 154</span></li>
+								<li>w.galazka@powtran-polska.pl</li>
+							</ul>
+							
+							<hr class="has-background-grey-light">
+							
+							<ul>
+								<li>NIP: <span class="important-red">9671354652</span></li>
+								<li>REGON: <span class="important">341286593</span></li>
+								<li>Numer KRS: <span class="important">0000422589</span></li>
+							</ul>
+							
+							<hr class="has-background-grey-light">
+
 							<span class="important">Konto bankowe: Bank Spółdzielczy w Nakle nad Notecią</span>
-							68 8179 009 0028 4426 2000 0010
+							<span class="important-red">68&nbsp;8179&nbsp;0009&nbsp;0028&nbsp;4426&nbsp;2000&nbsp;0010</span>
 						</div>
 					</div>
 				</div>
 				<div class="tile is-4">
-					MAPA
+					<div id="map" style="width: 100%; min-height: 350px"></div>
 				</div>
 				<div class="tile is-4">
 					<% include ../public/parts/news %>
@@ -70,3 +83,20 @@
 		</div>
 	</body>
 </html>
+
+<script>
+    function myMap() {
+
+        var uluru = {lat:53.127145, lng:17.993233};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 15,
+          center: uluru
+        });
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map
+        });
+    }
+</script> 
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyACUxE0d-0NhQ-Ea4Z1V0YYz7Y4qr7Boxs&callback=myMap"></script>
+

@@ -1,13 +1,22 @@
-<div class="tile is-parent news is-vertical">
-	<%for(let i in render.news){%>
-	<div class="tile is-child">
-		<h3> <%=render.news[i].title%></h3>
-		<span> <%=render.news[i].date%></span>
-		<figure class="image is-128x128">
-			<img src="<%=render.news[i].mainImage%>" />
-		</figure>		
+<div class="tile is-parent is-vertical has-background-grey-lighter">
+		<h1 class="title">Aktualności</h1>
+	<div class="tile is-child news">
+		<div class="news-container tile-content">
+			<%for(let i in render.news){%>
+				<div class="news-header-container">
+					<h3 class="news-title"> <%=render.news[i].title%></h3>
+					<h4 class="news-subtitle">Dodano: <span class="important"><%=render.news[i].date%></span></h4>
+					<hr class="is-marginless">
+					<div class="image-container">
+						<figure class="image">
+							<img src="<%=render.news[i].mainImage%>" />
+						</figure>	
+					</div>	
+				</div>
 
-		<p> <%-render.news[i].brief%></p>
+				<p class="has-text-justified"> <%-render.news[i].brief%></p><br>
+				
+			<%}%>
+		</div>
 	</div>
-	<%}%>
 </div>

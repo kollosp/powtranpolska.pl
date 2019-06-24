@@ -20,23 +20,25 @@
 		</div><!--ancestor-->
 		
 		<div class="container">
-			<div class="tile is-ancestor has-background-grey-lighter">
+			<div class="tile is-ancestor">
 				<div class="tile is-8">
 					
-					<div class="tile is-parent is-vertical">
+					<div class="tile is-parent">
 						<div class="tile is-child">
-							<h1 class="title">Pliki do pobrania</h1>
-						</div>		
-						<div class="tile is-child tile-content">
-							<%for(let i of render.download){%>
-								<div class="download-tile">		
-									<a href="<%=i.path%>">
-										<%=i.date%> <br>
-										<%=i.name%>
-										<i class="fas fa-file-download"></i>
-									</a>
-								</div>
-							<%}%>
+							<div class="columns is-multiline">
+								<%for(let i of render.cards){%>
+								<a href="<%=i.path%>" class="column is-flex is-3 is-half-tablet">	
+									<div class="card">
+										<figure class="image">
+											<img src="<%=i.image%>"/>
+										</figure>
+										<h1 class="title"><%=i.title%></h1>
+										<h1 class="subtitle"><%-i.subtitle%></h1>
+										<div class="arrow">></div>
+									</div>
+								</a>
+								<%}%>
+							</div>
 						</div>
 					</div>
 				

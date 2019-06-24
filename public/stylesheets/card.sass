@@ -1,0 +1,55 @@
+
+
+.card 
+	$frame-width: 5px
+
+	margin: 5px
+
+	border-left: $frame-width solid $red
+	border-top: $frame-width solid $red
+
+	position: relative
+	text-align: right
+	padding: 0.75em
+
+	&:after
+		content: '\A'
+		position: absolute
+		width: $frame-width
+		top: 0
+		right: 0
+		bottom: 90%
+		background-color: $red
+
+
+	.image
+		max-width: 100%
+
+		img
+			margin-right: 0px
+			margin-left: auto
+			max-width: 80% 
+
+	div.arrow
+		position: absolute
+		width: 55px
+		height: 55px
+		bottom: 0
+		left: 0
+		transform: translate(-50%, 50%)
+		background-color: $white
+		z-index: 11
+		color: $grey-light
+		padding: 0px
+		line-height: 1em
+		padding: 0px 10px
+
+	&:hover
+		div.arrow
+			color: $black	
+
+
+@include mobile
+	.card
+		width: 60%
+		margin: 10px auto 

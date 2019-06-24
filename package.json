@@ -6,7 +6,7 @@
     "start": "node ./bin/www",
     "start-css": "npm run css-watch",
     "css-watch": "npm run css-build -- --watch",
-    "css-build": "node-sass --omit-source-map-url public/stylesheet/sass/style.sass public/stylesheet/style.css"
+    "css-build": "node-sass --omit-source-map-url public/stylesheet/style.sass public/stylesheet/style.css"
   },
   "dependencies": {
     "bulma": "^0.7.5",
