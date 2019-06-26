@@ -1,0 +1,26 @@
+{
+  "development": {
+    "username": "pparczyk_powtran",
+    "password": "Powtran0102!",
+    "database": "pparczyk_powtranpolska",
+    "host": "powtran-polska.pl",
+    "dialect": "mysql",
+    "operatorsAliases": false
+  },
+  "test": {
+    "username": "pparczyk_powtran",
+    "password": "Powtran0102!",
+    "database": "pparczyk_powtranpolska",
+    "host": "powtran-polska.pl",
+    "dialect": "mysql",
+    "operatorsAliases": false
+  },
+  "production": {
+    "username": "pparczyk_powtran",
+    "password": "Powtran0102!",
+    "database": "pparczyk_powtranpolska",
+    "host": "powtran-polska.pl",
+    "dialect": "mysql",
+    "operatorsAliases": false
+  }
+}

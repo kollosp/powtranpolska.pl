@@ -10,7 +10,10 @@ var catalogRouter = require('./routes/catalog');
 var usersRouter = require('./routes/users');
 var middlewareRouter = require('./routes/middleware');
 
+var db = require('./models/index');
 var app = express();
+
+const queries = require('./databaseQueries');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -32,6 +35,17 @@ app.use('/', middlewareRouter);
 app.use('/', indexRouter);
 app.use('/catalog', catalogRouter);
 app.use('/users', usersRouter);
+
+
+
+app.get("/database", (req, res) => {
+
+    queries.findSubcategoriesFor(db, 1, sub => {
+        res.send(sub)
+    })
+    
+    console.log("dataabase");
+})
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
