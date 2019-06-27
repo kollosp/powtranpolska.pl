@@ -24,8 +24,25 @@
 			<div class="container">
 				<main class="is-ancestor">
 					<div class="tile is-parent">
-						<div class="tile is-child">
-						
+						<div class="tile is-child tile-content">
+							<div class="table-container">
+								<table class="table">
+									<tr>
+										<th>Nazwa</th>
+										<th>Kategoria</th>
+										<th>Specyfikacja</th>
+										<th>Cena [zł]</th>
+									</tr>
+									<%for(let i in render.products){%>
+										<tr>
+											<td><%=render.products[i].name%></td>
+											<td><%=render.products[i].category%></td>
+											<td><%=render.products[i].specification%></td>
+											<td><%=render.products[i].price%></td>
+										</tr>
+									<%}%>
+								</table>
+							</div>
 						</div>
 					</div>
 				</main>

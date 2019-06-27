@@ -5,14 +5,17 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var sassMiddleware = require('node-sass-middleware');
 
+require('./global.service')
+
 var indexRouter = require('./routes/index');
 var catalogRouter = require('./routes/catalog');
 var usersRouter = require('./routes/users');
 var middlewareRouter = require('./routes/middleware');
+var pricesRouter = require('./routes/prices');
 
-var db = require('./models/index');
 var app = express();
 
+const db = require('./models/index');
 const queries = require('./databaseQueries');
 
 // view engine setup
@@ -34,8 +37,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', middlewareRouter);
 app.use('/', indexRouter);
 app.use('/catalog', catalogRouter);
+app.use('/prices', pricesRouter);
 app.use('/users', usersRouter);
-
 
 
 app.get("/database", (req, res) => {
@@ -53,6 +56,7 @@ app.use(function(req, res, next) {
 });
 
 app.get("*", (req, res) => {
+
 })
 
 // error handler

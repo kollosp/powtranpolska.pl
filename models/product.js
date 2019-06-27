@@ -2,6 +2,7 @@
 module.exports = (sequelize, DataTypes) => {
   const Product = sequelize.define('Product', {
     name: {type: DataTypes.STRING, allowNull:false},
+    //specification is a json 
     specification: {type: DataTypes.STRING, allowNull:false},
     htmlDescription: {type: DataTypes.STRING, allowNull:false},
     price: {type: DataTypes.FLOAT, allowNull:false},
@@ -12,8 +13,8 @@ module.exports = (sequelize, DataTypes) => {
   Product.associate = function(models) {
     // associations can be defined here
 
-    models.Category.hasMany(models.Product)
-    models.Product.belongsTo(models.Category)
+    models.Category.hasMany(models.Product, {foreignKey: 'category', sourceKey: 'id'})
+    models.Product.belongsTo(models.Category, {foreignKey: 'category', targetKey: 'id'})
   };
 
   return Product;

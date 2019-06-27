@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+const fs = require('fs');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -9,17 +10,32 @@ router.get('/', function(req, res, next) {
 /* GET download. */
 router.get('/download', function(req, res, next) {
 
-	req.render.download = [{date: "25.04.19", name: "Instrukcja obsługi PI8000", path: "/jakas/sciezka/do/pliku"},
-		{date: "25.04.19", name: "Instrukcja obsługo PI8000", path: "/jakas/sciezka/do/pliku"},
-		{date: "25.04.19", name: "Instrukcja obsługo PI8000", path: "/jakas/sciezka/do/pliku"}]
+	let dirpath = __dirname + "/../public/downloads"
+	
+	req.render.download = []
+	fs.readdir(dirpath, (err, files) => {
+		if(err){
+			console.error(err)
+			return 
+		}
 
-	res.render('download', { render: req.render });
+		files.forEach(file => {
+			let stats = fs.statSync(dirpath + "/" +file)
+			console.log(stats);
+
+			req.render.download.push({
+				date: stats.mtime.toLocaleDateString("nl",{year:"2-digit",month:"2-digit", day:"2-digit"}),
+				name: file,
+				path: "/downloads/" + file
+			})
+		})
+		
+		res.render('download', { render: req.render });
+	})
+
 });
 
-/* GET prices. */
-router.get('/prices', function(req, res, next) {
-	res.render('prices', { render: req.render });
-});
+
 
 /* GET contact page. */
 router.get('/contact', function(req, res, next) {

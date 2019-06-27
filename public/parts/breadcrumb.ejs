@@ -1,0 +1,10 @@
+<nav class="breadcrumb tile-content has-succeeds-separator"">
+	<div class="container">
+		<ul>
+			<li style="padding-right: 5px"> Obecnie przeglądasz: </li>
+			<%for(let i in render.breadcrumb){%>
+				<li><a href="<%=render.breadcrumb[i].path%>"><%=render.breadcrumb[i].name%></a></li> 
+			<%}%>
+		</ul>
+	</div>
+</nav>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+    	<% include ../public/parts/head %>
+	</head>
+	<body>
+		<div class="tile is-ancestor is-vertical">
+			<header class="tile is-parent">
+				<div class="tile is-child">
+					<% include ../public/parts/topLabel %>
+					<% include ../public/parts/mainMenu %>
+					<div class="is-hidden-touch">
+						<% include ../public/parts/mainMenuSlider %>
+					</div>
+					<div class="is-hidden-desktop">
+						<% include ../public/parts/mainMenuSliderMobile %>
+					</div>
+				</div>
+			</header>
+		</div><!--ancestor-->
+		
+
+		<%include ../public/parts/breadcrumb%>
+
+		<div class="container">
+			
+		
+			<div class="tile is-ancestor">
+				<div class="tile is-8 is-vertical">
+					
+					<div class="tile">
+						<div class="tile is-parent is-4">
+							<div class="tile is-child tile-content">
+								<div class="card">
+									<figure class="image">
+										<img src="<%=render.product.images[0]%>"/>
+									</figure>
+									<h1 class="title"></h1>
+									<h1 class="subtitle"></h1>
+								</div>
+							</div>
+						</div>
+						<div class="tile is-parent is-vertical">
+							<div class="tile is-child tile-content">
+								<header class="small">
+									<h1 class="title"><%=render.product.name%></h1>
+								</header>
+								<table class="specification-table">
+									<%for(let key in render.product.specification){%>
+										<tr>
+											<td><%=key%></td>
+											<td><%=render.product.specification[key].value%> <%=render.product.specification[key].unit%></td>
+										</tr>
+									<%}%>
+								</table>	
+							</div>
+							<div class="tile is-child tile-content">
+								<span class="is-size-5"> 
+									Cena: 
+									<span class="important ">
+										<%=render.product.price%> zł
+									</span>
+								</span>
+
+							</div>
+						</div>
+					</div>
+					<div class="tile is-parent">
+						<div class="tile is-child tile-content database-html-container">
+							<%-render.product.htmlDescription%>
+						</div>
+					</div>
+
+				</div>
+				<div class="tile is-4">
+					<% include ../public/parts/news %>
+				</div>
+			</div>
+		</div>
+
+		<div class="tile is-ancestor is-vertical">
+			<footer class="tile is-parent">
+				<div class="tile is-child">
+					<% include ../public/parts/footer %>
+				</div>
+			</footer>
+		</div>
+	</body>
+</html>

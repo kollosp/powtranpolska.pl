@@ -24,19 +24,21 @@
 				<div class="tile is-8">
 					
 					<div class="tile is-parent is-vertical">
-						<div class="tile is-child">
+						<div class="tile is-child download">
 							<h1 class="title">Pliki do pobrania</h1>
-						</div>		
-						<div class="tile is-child tile-content">
-							<%for(let i of render.download){%>
-								<div class="download-tile">		
-									<a href="<%=i.path%>">
-										<%=i.date%> <br>
-										<%=i.name%>
-										<i class="fas fa-file-download"></i>
-									</a>
-								</div>
-							<%}%>
+							<ul>
+								<%for(let i of render.download){%>
+									<li class="">		
+										<a href="<%=i.path%>">
+											<div class="columns">
+												<div class="column is-4"><%=i.date%></div>
+												<div class="column is-4"><span class="important"><%=i.name%></span></div>
+												<div class="column is-4"><i class="fas fa-file-download"></i></div>
+											</div>
+										</a>
+									</li>
+								<%}%>
+							</ul>
 						</div>
 					</div>
 				
