@@ -24,7 +24,7 @@ const convert = function(json){
 }
 
 
-module.exports = {
+let queries = {
 
 	//finds categoies with null subcategoryFor attriebute
 	findMainCategories: function(db, callback) {
@@ -40,9 +40,52 @@ module.exports = {
 		db.Product.findAll({
 			where: {visible: true}
 		}).then(products => {
+			callback(products)
+		}).catch(e => console.error(e))
+	},
+
+	findAllProductsMin: function(db, callback) {
+		
+		//return promise
+		db.Product.findAll({
+			where: {
+				visible: true
+			},
+			attributes: ['id', 'name', 'specification', 'price', 'longName', 'category']
+		}).then(products => {
 			console.log("find all");
 			callback(products)
 		}).catch(e => console.error(e))
+	},
+
+	findAllCategories: function(db, callback) {
+		db.Category.findAll({}).
+	    then(cat => {
+	        callback(cat)
+	    })
+	},
+
+	findAllUpperCategoriesForProducts: function(db, products, callback) {
+		queries.findAllCategories(db, (categories) => {
+			for(let i in products) {
+				let upper = products[i].category
+				let cats = []
+
+				while(upper != null){
+					for(let j  in categories){
+						if(categories[j].id == upper){
+							cats.push(categories[j].name)
+							upper = categories[j].subcategoryFor
+							break
+						}
+					}
+				}
+
+				products[i].category = cats
+			}			
+
+			callback(products)
+		})
 	},
 
 	//find upper/over category for specified id
@@ -101,6 +144,6 @@ module.exports = {
 			callback(product)
 		})
 	}
-
-
 }
+
+module.exports = queries

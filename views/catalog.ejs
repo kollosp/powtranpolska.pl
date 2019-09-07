@@ -24,7 +24,7 @@
 		
 		<div class="container">
 			<div class="tile is-ancestor">
-				<div class="tile is-8">
+				<div class="tile is-10">
 					
 					<div class="tile is-parent">
 						<div class="tile is-child">
@@ -35,8 +35,8 @@
 										<figure class="image">
 											<img src="<%=i.image%>"/>
 										</figure>
-										<h1 class="title"><%=i.title%></h1>
-										<h1 class="subtitle"><%-i.subtitle%></h1>
+										<h1><%=i.title%></h1>
+										<h2><%-i.subtitle%></h2>
 										<div class="arrow">></div>
 									</div>
 								</a>
@@ -46,7 +46,7 @@
 					</div>
 			
 				</div>
-				<div class="tile is-4">
+				<div class="tile is-2">
 					<% include ../public/parts/news %>
 				</div>
 			</div>

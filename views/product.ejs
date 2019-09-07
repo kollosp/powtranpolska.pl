@@ -27,7 +27,14 @@
 		
 			<div class="tile is-ancestor">
 				<div class="tile is-8 is-vertical">
+					<div class="tile is-parent">
+						<div class="tile is-child">
+							<header class="small">
+								<h1 class="title"><%=render.product.longName%></h1>
+							</header>
 					
+						</div>
+					</div>
 					<div class="tile">
 						<div class="tile is-parent is-4">
 							<div class="tile is-child tile-content">
@@ -42,9 +49,6 @@
 						</div>
 						<div class="tile is-parent is-vertical">
 							<div class="tile is-child tile-content">
-								<header class="small">
-									<h1 class="title"><%=render.product.name%></h1>
-								</header>
 								<table class="specification-table">
 									<%for(let key in render.product.specification){%>
 										<tr>
@@ -52,22 +56,44 @@
 											<td><%=render.product.specification[key].value%> <%=render.product.specification[key].unit%></td>
 										</tr>
 									<%}%>
+									<!--<tr>
+										<td style="vertical-align: bottom;" class="is-size-4">
+											<br><br><br><br>
+											Cena netto
+										</td>
+										<td style="vertical-align: bottom;" class="has-text-red">
+											<span class="important-red is-size-4"><span class="is-size-3"><%=render.product.price%></span> zł</span>
+										</td>
+									</tr>-->
 								</table>	
 							</div>
 							<div class="tile is-child tile-content">
-								<span class="is-size-5"> 
-									Cena: 
-									<span class="important ">
-										<%=render.product.price%> zł
+								<div class="price"> 
+									Cena netto 
+									<span class="important-red">
+										<%=render.product.price%> 
 									</span>
-								</span>
+
+									zł <br>
+									
+
+									<span class="is-size-6">
+										Cena brutto
+										<span class="important-red">
+											<%=(render.product.price * 1.23).toFixed(2) %>
+										</span>
+										zł (Vat 23%)
+									</span>
+								</div>
 
 							</div>
 						</div>
 					</div>
 					<div class="tile is-parent">
 						<div class="tile is-child tile-content database-html-container">
+							
 							<%-render.product.htmlDescription%>
+												
 						</div>
 					</div>
 

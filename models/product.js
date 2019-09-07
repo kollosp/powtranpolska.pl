@@ -7,7 +7,9 @@ module.exports = (sequelize, DataTypes) => {
     htmlDescription: {type: DataTypes.STRING, allowNull:false},
     price: {type: DataTypes.FLOAT, allowNull:false},
     visible: {type: DataTypes.BOOLEAN, allowNull:false},
-    available: {type: DataTypes.INTEGER, allowNull:false}
+    available: {type: DataTypes.INTEGER, allowNull:false},
+    longName: {type: DataTypes.STRING, allowNull:false},
+    image: {type: DataTypes.STRING, allowNull:false}
   }, {});
 
   Product.associate = function(models) {

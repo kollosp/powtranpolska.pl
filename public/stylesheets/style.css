@@ -7140,6 +7140,14 @@ header.title-container.small {
     padding: 0px 10px; }
   .card:hover div.arrow {
     color: #0a0a0a; }
+  .card h1 {
+    color: #0a0a0a;
+    font-size: 1.5rem;
+    font-weight: 900;
+    word-wrap: break-word; }
+  .card h2 {
+    color: #7a7a7a;
+    font-size: 1.25rem; }
 
 @media screen and (max-width: 768px) {
   .card {
@@ -7215,6 +7223,13 @@ footer {
     footer .authors a:hover {
       color: inherit;
       text-decoration: underline; }
+
+.price {
+  padding: 25px;
+  background-color: whitesmoke;
+  text-align: center;
+  font-size: 2rem;
+  line-height: 0.8em; }
 
 .about .article {
   text-align: justify;

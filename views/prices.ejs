@@ -22,26 +22,33 @@
 		
 		<div class="has-background-white">
 			<div class="container">
-				<main class="is-ancestor">
+				<main class="tile is-ancestor is-vertical">
 					<div class="tile is-parent">
 						<div class="tile is-child tile-content">
 							<div class="table-container">
-								<table class="table">
-									<tr>
-										<th>Nazwa</th>
-										<th>Kategoria</th>
-										<th>Specyfikacja</th>
-										<th>Cena [zł]</th>
-									</tr>
-									<%for(let i in render.products){%>
+								<span class="is-size-5">
+									Podane ceny wyrażone są w kwotach <strong>netto</strong> loco magazyn w <strong>Bydgoszczy</strong>. W przypadku dużych zamówień i dla stałych klientów udzielamy atrakcyjnych rabatów.<br>
+									Na wszystkie produkty udzielamy<strong>24 miesięcznej gwarancji</strong>. <a href="/downloads/Warunki_gwarancji.pdf">Szczegóły gwarancji</a><br>
+									<strong>Zapraszamy do kontaktu bezpośredniego!</strong>
+								</span>
+								<div style="overflow-x: auto" >
+									<table style="width: 100%" class="table is-striped is-bordered is-hoverable">
 										<tr>
-											<td><%=render.products[i].name%></td>
-											<td><%=render.products[i].category%></td>
-											<td><%=render.products[i].specification%></td>
-											<td><%=render.products[i].price%></td>
+											<th>Nazwa</th>
+											<th>Kategoria</th>
+											<th>Specyfikacja</th>
+											<th>Cena [zł]</th>
 										</tr>
-									<%}%>
-								</table>
+										<%for(let i in render.products){%>
+											<tr style="cursor: pointer;" onclick="window.location.href='<%=render.products[i].link%>'">
+												<td><%=render.products[i].name%></td>
+												<td><%=render.products[i].category%></td>
+												<td><%=render.products[i].specification%></td>
+												<td><%=render.products[i].price%></td>
+											</tr>
+										<%}%>
+									</table>
+								</div>
 							</div>
 						</div>
 					</div>

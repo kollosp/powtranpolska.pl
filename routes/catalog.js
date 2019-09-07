@@ -1,12 +1,19 @@
 var express = require('express');
 var router = express.Router();
+var querystring = require("querystring");
 
 const db = require('../models/index');
 const queries = require('../databaseQueries');
 
 /* GET home page. */
 router.get('/*', function(req, res, next) {
+	//req.url = req.url
 	let url = req.url.split('/')
+	
+	for(let i in url){
+		url[i] = querystring.unescape(url[i])
+	}
+
 	url.splice(0,1)
 
 	console.log(req.url, url, url[url.length-1][0]);
@@ -54,27 +61,34 @@ const catalogRenderCategoryPage = function(req, res, url, categories, products) 
 				path += u + '/' 
 		})
 
-		path += `${item.name}`
-
-		req.render.cards.push({title: item.name, subtitle: item.name, 
-			path: path, image:"/images/inverter2.png"})	
+		path += querystring.escape(`${item.name}`)
+		
+		req.render.cards.push({title: item.name, subtitle: item.description, 
+			path: path, image: item.image})	
 	})
 
 
 	products.forEach(item => {
 		item = item.dataValues
-		console.log(item);
 		let path = `/catalog/`
 
 		url.forEach(u => {
 			if(u != '')
 				path += u + '/' 
-		})
+		}) 
 
-		path += `p${item.name}`
+		path +=  querystring.escape(`p${item.name}`)
 
-		req.render.cards.push({title: item.name, subtitle: item.name, 
-			path: path, image:"/images/inverter2.png"})	
+		let spec = JSON.parse(item.specification)
+		console.log(spec)
+
+		req.render.cards.push({
+			title: `${item.name.split('_')[0]} ${spec.Power.value} kW`,
+			subtitle: `${spec.Output.value} V, ` +
+			`${spec.Current.value} A`, 
+			path: path, 
+			image: item.image
+		})	
 	})
 
 
@@ -102,7 +116,7 @@ const renderProductPage = function(req, res, url, product){
 
 	req.render.breadcrumb = crateUrlForBreadCrumb(req.url)
 
-	req.render.product.images = ["/images/inverter2.png"]
+	req.render.product.images = [product.image]
 	res.render('product', { render: req.render });
 }
 
@@ -121,9 +135,16 @@ const crateUrlForBreadCrumb = function(url) {
 			
 		breadcrumb.push({
 			path: path + "/" + url[i],
-			name: decodeURI(url[i])
+			name: querystring.unescape(url[i])
 		})		
 		path += "/" + url[i]
+	}
+
+	if(breadcrumb[breadcrumb.length-1].name[0] == 'p'){
+		let str = breadcrumb[breadcrumb.length-1].name 
+		breadcrumb[breadcrumb.length-1].name = str.slice(1,str.length-1)
+		
+		console.log()
 	}
 
 	return breadcrumb
