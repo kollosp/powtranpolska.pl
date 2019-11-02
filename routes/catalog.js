@@ -14,6 +14,7 @@ router.get('/*', function(req, res, next) {
 		url[i] = querystring.unescape(url[i])
 	}
 
+
 	url.splice(0,1)
 
 	console.log(req.url, url, url[url.length-1][0]);
