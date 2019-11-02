@@ -68,13 +68,15 @@
 				<div class="tile is-4">
 					<div id="map" style="width: 100%; min-height: 350px"></div>
 				</div>
-				<div class="tile is-4">
-					<% include ../public/parts/news %>
+				<div class="tile is-4 is-parent has-background-grey-lighter">
+					<div class="tile is-child">
+						<% include ../public/parts/messanger %>
+					</div>
 				</div>
 			</div>
 		</div>
 
-		<div class="tile is-ancestor is-vertical">
+		<div class="tile is-ancestor is-vertical" style="margin-top: 25px">
 			<footer class="tile is-parent">
 				<div class="tile is-child">
 					<% include ../public/parts/footer %>
