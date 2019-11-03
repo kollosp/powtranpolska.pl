@@ -8,13 +8,13 @@ const queries = require('../databaseQueries');
 //escape with slash
 const escWSlash = function(str) {
 
-	str = str.replace('||', '/')
+	str = str.replace('/', 'slash')
 	return querystring.escape(str)
 }
 
 const unescWSlash = function(str) {
 
-	str = str.replace('/', '||')
+	str = str.replace('slash', '/')
 	return querystring.unescape(str)
 }
 
