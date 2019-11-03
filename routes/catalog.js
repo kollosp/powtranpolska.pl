@@ -7,7 +7,8 @@ const queries = require('../databaseQueries');
 
 /* GET home page. */
 const catalogCreate =  function(req, res, next) {
-	//req.url = req.url
+	console.log("request url", req.url); 
+
 	let url = req.url.split('/')
 	
 	for(let i in url){
@@ -48,10 +49,6 @@ const catalogCreate =  function(req, res, next) {
 	}
 }
 
-router.get('/*/*', function(req, res, next) {
-	console.log("/*/*");
-	catalogCreate(req, res, next)
-});
 router.get('/*', catalogCreate);
 
 const catalogRenderCategoryPage = function(req, res, url, categories, products) {
