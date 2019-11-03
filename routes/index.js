@@ -1,5 +1,9 @@
 var express = require('express');
 var router = express.Router();
+
+
+const Mailer = require("../lib/mailer");
+const mailer = new Mailer("gmail", "pparczyk@wp.pl", "pparczyk1998");
 const fs = require('fs');
 
 /* GET home page. */
@@ -33,6 +37,27 @@ router.get('/download', function(req, res, next) {
 		res.render('download', { render: req.render });
 	})
 
+});
+
+router.post('/sendemail', function(req, res, next) {
+	
+
+	let emails = "pparczyk@wp.pl"
+
+	if(!mailer.send(req.body.senderEmail+", "+req.body.title,"Mail od: " + req.body.name + " " +req.body.surname + "\n"
+	    + " mail kontaktowy nadawcy: "+req.body.senderEmail + "\n"
+	    + " Temat: " + req.body.title + "\n"
+	    + " Treść:" + req.body.content + "\n\nPrzeglądana strona: " + req.body.url, 
+	    emails)){
+	    
+	    sendCorrect = true 
+	}
+	else{
+		sendError ="ERROR - nie udało się wysłać maila" 
+	}
+
+
+	res.send("{}");
 });
 
 

@@ -47,6 +47,9 @@ app.use('/prices', pricesRouter);
 app.use('/users', usersRouter);
 
 
+
+
+
 app.get("/database", (req, res) => {
 
     queries.findSubcategoriesFor(db, 1, sub => {
@@ -55,6 +58,8 @@ app.get("/database", (req, res) => {
     
     console.log("dataabase");
 })
+
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

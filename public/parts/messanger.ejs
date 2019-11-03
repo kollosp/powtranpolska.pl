@@ -1,52 +1,72 @@
-<form>
-	<div class="field">
-		<label class="label">Imię</label>
-		<div class="control has-icons-right">
-			<input class="input" type="text" placeholder="Wprowadź swoje imię...">
-			<span class="icon is-small is-right">
-				<i class="fas fa-check"></i>
-			</span>
+<section class="form" id="messanger">
+	<section v-if="thanksSection">
+		<header class="has-text-centered">
+		<h2 class="title">Dziękujemy za wysłanie wiadomości</h2> 
+		<h3 class="subtitle">Odpowiemy najszybiej jak będzie to możliwe.</h3>
+		</header>
+		<br>
+		<div class="field is-grouped">
+			<div class="control">
+				<button v-on:click="thanksSection = false" class="button is-primary" style="width: 100%">Powrót do formularza</button>
+			</div>
 		</div>
-	</div>
-	<div class="field">
-		<label class="label">Nazwisko</label>
-		<div class="control has-icons-right">
-			<input class="input" type="text" placeholder="Wprowadź swoje nazwisko...">
-			<span class="icon is-small is-right">
-				<i class="fas fa-check"></i>
-			</span>
+	</section>
+	<section v-else>
+		<div class="field">
+			<label class="label">Imię</label>
+			<div class="control has-icons-right">
+				<input v-model="message.name" v-on:change="nameOnChange" class="input" type="text" placeholder="Wprowadź swoje imię...">
+				<span class="icon is-small is-right">
+					<i class="fas fa-check" v-bind:class="{'has-text-success' : state.name}"></i>
+				</span>
+			</div>
+				<p class="help is-danger" v-if="state.name == false">{{error.name}}</p>
 		</div>
-	</div>
-	<div class="field">
-		<label class="label">Email kontatowy</label>
-		<div class="control has-icons-right">
-			<input class="input" type="text" placeholder="Wprowadź swój e-mail kontaktowy...">
-			<span class="icon is-small is-right">
-				<i class="fas fa-check"></i>
-			</span>
+		<div class="field">
+			<label class="label">Nazwisko</label>
+			<div class="control has-icons-right">
+				<input v-model="message.surname" v-on:change="surnameOnChange"  class="input" type="text" placeholder="Wprowadź swoje nazwisko...">
+				<span class="icon is-small is-right">
+					<i class="fas fa-check" v-bind:class="{'has-text-success' : state.surname}"></i>
+				</span>
+			</div>
+				<p class="help is-danger" v-if="state.surname == false">{{error.surname}}</p>
 		</div>
-	</div>
-	<div class="field">
-		<label class="label">Temat</label>
-		<div class="control has-icons-right">
-			<input class="input" type="text" placeholder="Wprowadź temat wiadomości...">
-			<span class="icon is-small is-right">
-				<i class="fas fa-check"></i>
-			</span>
+		<div class="field">
+			<label class="label">Email kontatowy</label>
+			<div class="control has-icons-right">
+				<input v-model="message.senderEmail" v-on:change="senderEmailOnChange" class="input" type="text" placeholder="Wprowadź swój e-mail kontaktowy...">
+				<span class="icon is-small is-right">
+					<i class="fas fa-check" v-bind:class="{'has-text-success' : state.senderEmail}"></i>
+				</span>
+			</div>
+				<p class="help is-danger" v-if="state.senderEmail == false">{{error.senderEmail}}</p>
 		</div>
-	</div>
-	<div class="field">
-		<label class="label">Wiadomość</label>
-		<div class="control">
-			<textarea class="textarea" placeholder="Treść wiadomości..."></textarea>
+		<div class="field">
+			<label class="label">Temat</label>
+			<div class="control has-icons-right">
+				<input v-model="message.title" v-on:change="titleOnChange"  class="input" type="text" placeholder="Wprowadź temat wiadomości...">
+				<span class="icon is-small is-right">
+					<i class="fas fa-check" v-bind:class="{'has-text-success' : state.title}"></i>
+				</span>
+			</div>
+				<p class="help is-danger" v-if="state.title == false">{{error.title}}</p>
 		</div>
-	</div>
-	<div class="field is-grouped">
-		<div class="control">
-			<button class="button is-primary">Wyślij</button>
+		<div class="field">
+			<label class="label">Wiadomość</label>
+			<div class="control">
+				<textarea v-model="message.content" v-on:change="contentOnChange" class="textarea" placeholder="Treść wiadomości..."></textarea>
+			</div>
+				<p class="help is-danger" v-if="state.content == false">{{error.content}}</p>
 		</div>
-		<div class="control">
-			<button class="button is-text">Anuluj</button>
+		<div class="field is-grouped">
+			<div class="control">
+				<button v-on:click="send" class="button is-primary">Wyślij</button>
+			</div>
 		</div>
-	</div>
-</form>
+	</section>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
+<script src="/javascripts/messanger.js"></script>
