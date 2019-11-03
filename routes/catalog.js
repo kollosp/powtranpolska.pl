@@ -57,7 +57,7 @@ const catalogRenderCategoryPage = function(req, res, url, categories, products) 
 		
 	categories.forEach(item => {
 		item = item.dataValues
-		console.log(item);
+		//console.log(item);
 		let path = `/catalog/`
 
 		url.forEach(u => {
@@ -84,7 +84,7 @@ const catalogRenderCategoryPage = function(req, res, url, categories, products) 
 		path +=  querystring.escape(`p${item.name}`)
 
 		let spec = JSON.parse(item.specification)
-		console.log(spec)
+		//console.log(spec)
 
 		req.render.cards.push({
 			title: `${item.name.split('_')[0]} ${spec.Power.value} kW`,
@@ -148,7 +148,7 @@ const crateUrlForBreadCrumb = function(url) {
 		let str = breadcrumb[breadcrumb.length-1].name 
 		breadcrumb[breadcrumb.length-1].name = str.slice(1,str.length-1)
 		
-		console.log()
+		//console.log()
 	}
 
 	return breadcrumb

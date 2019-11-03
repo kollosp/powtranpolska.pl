@@ -19,7 +19,7 @@ const convert = function(json){
         returnedJson = json; // This is a find...so the JSON exists here
     }
 
-    console.log("r: ", returnedJson);
+    //console.log("r: ", returnedJson);
     return returnedJson; // Finally return the json object so it can be used
 }
 
