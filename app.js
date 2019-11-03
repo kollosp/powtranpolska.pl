@@ -34,6 +34,12 @@ app.use(sassMiddleware({
 }));
 app.use(express.static(path.join(__dirname, 'public')));
 
+
+app.use('/', (req, res, next) => {
+  console.log("url: ", req.url);
+  next()
+});
+
 app.use('/', middlewareRouter);
 app.use('/', indexRouter);
 app.use('/catalog', catalogRouter);
