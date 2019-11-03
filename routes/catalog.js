@@ -5,6 +5,19 @@ var querystring = require("querystring");
 const db = require('../models/index');
 const queries = require('../databaseQueries');
 
+//escape with slash
+const escWSlash = function(str) {
+
+	str = str.replace('||', '/')
+	return querystring.escape(str)
+}
+
+const unescWSlash = function(str) {
+
+	str = str.replace('/', '||')
+	return querystring.unescape(str)
+}
+
 /* GET home page. */
 const catalogCreate =  function(req, res, next) {
 	console.log("request url", req.url); 
@@ -12,7 +25,7 @@ const catalogCreate =  function(req, res, next) {
 	let url = req.url.split('/')
 	
 	for(let i in url){
-		url[i] = querystring.unescape(url[i])
+		url[i] = unescWSlash(url[i])
 	}
 
 
@@ -65,7 +78,7 @@ const catalogRenderCategoryPage = function(req, res, url, categories, products) 
 				path += u + '/' 
 		})
 
-		path += querystring.escape(`${item.name}`)
+		path += escWSlash(`${item.name}`)
 		
 		req.render.cards.push({title: item.name, subtitle: item.description, 
 			path: path, image: item.image})	
@@ -81,7 +94,7 @@ const catalogRenderCategoryPage = function(req, res, url, categories, products) 
 				path += u + '/' 
 		}) 
 
-		path +=  querystring.escape(`p${item.name}`)
+		path +=  escWSlash(`p${item.name}`)
 
 		let spec = JSON.parse(item.specification)
 		//console.log(spec)
@@ -139,7 +152,7 @@ const crateUrlForBreadCrumb = function(url) {
 			
 		breadcrumb.push({
 			path: path + "/" + url[i],
-			name: querystring.unescape(url[i])
+			name: unescWSlash(url[i])
 		})		
 		path += "/" + url[i]
 	}
