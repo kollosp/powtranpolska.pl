@@ -42,7 +42,7 @@ router.get('/download', function(req, res, next) {
 router.post('/sendemail', function(req, res, next) {
 	
 
-	let emails = "pparczyk@wp.pl"
+	let emails = "pparczyk@wp.pl,jparczyk@wp.pl"
 
 	if(!mailer.send(req.body.senderEmail+", "+req.body.title,"Mail od: " + req.body.name + " " +req.body.surname + "\n"
 	    + " mail kontaktowy nadawcy: "+req.body.senderEmail + "\n"
